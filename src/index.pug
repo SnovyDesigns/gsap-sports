@@ -1,3 +1,6 @@
+include ./pug/main.pug
+
+
 doctype html
 html(lang="en")
   head
@@ -11,9 +14,9 @@ html(lang="en")
       nav
         h3 Sports.
         .social
-          i.fab.fa-twitter-square
-          i.fab.fa-instagram
-          i.fab.fa-facebook-square
+          +twitter-icon('social__item')
+          +instagram-icon('social__item')
+          +facebook-icon('social__item')
       .container
         .cover
         .sports

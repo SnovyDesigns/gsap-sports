@@ -13,6 +13,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 section {
@@ -37,11 +38,18 @@ nav {
 }
 
 .social {
-  font-size: 3rem;
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3rem;
+
+  svg {
+    @include size(2.6);
+
+    path {
+      fill: #fff;
+    }
+  }
 }
 
 .container {
@@ -118,11 +126,11 @@ nav {
     &::after {
       content: '';
       display: block;
-      @include size(100%, 0.4);
+      @include size(100%, 0.7);
       @include absolute(left 0 bottom 0);
       background: $pink;
       z-index: -1;
-      @include trans(0.7);
+      @include trans(0.4);
     }
 
     &:hover::after {
@@ -160,6 +168,7 @@ nav {
 
   &__card {
     width: 70%;
+    height: 100%;
     border-top: 0.5rem solid $pink;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
