@@ -9,6 +9,9 @@ import {
   sports,
   eventDetails
 } from '../variables';
+
+import detailsHoverTL from './details-hover';
+
 const detailsClickTL = new TimelineMax();
 
 sportsDetails.addEventListener('click', () => {
@@ -45,4 +48,12 @@ sportsDetails.addEventListener('click', () => {
     .to(eventBlue, 0.6, { top: '-100%', ease: Power3.easeInOut })
     .to(eventContent, 0.6, { top: '-100%', ease: Power3.easeInOut })
     .from(eventDetails, 0.7, { y: 40, autoAlpha: 0, ease: Power0.easeIn });
+
+  if (detailsClickTL.isActive()) {
+    sportsDetails.addEventListener('mouseleave', () => {
+      detailsHoverTL.stop();
+    });
+  }
 });
+
+export default detailsClickTL;

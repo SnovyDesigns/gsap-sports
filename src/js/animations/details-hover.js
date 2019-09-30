@@ -1,24 +1,26 @@
 import { TimelineMax, Power3 } from 'gsap';
 import { sportsDetails, sportsBg } from '../variables';
 
-const detailsHoverRL = new TimelineMax({ paused: true });
-detailsHoverRL.to(sportsBg, 0.7, {
+const detailsHoverTL = new TimelineMax({ paused: true });
+detailsHoverTL.to(sportsBg, 0.7, {
   scale: 1.3,
   rotation: '45deg',
   ease: Power3.easeInOut
 });
 
-let rev = detailsHoverRL.reversed();
+let rev = detailsHoverTL.reversed();
 
 sportsDetails.addEventListener('mouseenter', () => {
   if (rev) {
-    detailsHoverRL.restart();
-    detailsHoverRL.play();
+    detailsHoverTL.restart();
+    detailsHoverTL.play();
   } else {
-    detailsHoverRL.play();
+    detailsHoverTL.play();
   }
 });
 
 sportsDetails.addEventListener('mouseleave', () => {
-  detailsHoverRL.reverse();
+  detailsHoverTL.reverse();
 });
+
+export default detailsHoverTL;
